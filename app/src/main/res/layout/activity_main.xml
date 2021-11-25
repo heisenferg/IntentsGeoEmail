@@ -109,7 +109,7 @@
         app:layout_constraintVertical_bias="0.629" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/textMail"
         android:layout_width="167dp"
         android:layout_height="46dp"
         android:layout_marginTop="13dp"
@@ -148,9 +148,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mail"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName4"
+        app:layout_constraintBottom_toBottomOf="@+id/textMail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName4"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName4" />
+        app:layout_constraintStart_toEndOf="@+id/textMail"
+        app:layout_constraintTop_toTopOf="@+id/textMail" />
 </androidx.constraintlayout.widget.ConstraintLayout>
