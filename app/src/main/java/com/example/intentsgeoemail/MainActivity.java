@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button abrir=findViewById(R.id.buttonWeb);
         abrir.setOnClickListener(this::abrir);
+        Button map = findViewById(R.id.buttonMap);
+        map.setOnClickListener(this::abrir);
+        Button mail = findViewById(R.id.buttonMail);
+        mail.setOnClickListener(this::abrir);
     }
 
 
@@ -33,7 +37,33 @@ public class MainActivity extends AppCompatActivity {
                 chooser=i.createChooser(i,"Elige Navegador");
                 startActivity(i);
                 Toast.makeText(this.getApplicationContext(),
-                        "Acceso a web!",Toast.LENGTH_LONG).show();                 break;
+                        "Acceso a web!",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.buttonMap:
+                EditText latitud = findViewById(R.id.textLatitud);
+                EditText longitud = findViewById(R.id.textLongitud);
+                i.setAction(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("geo:"+latitud.getText().toString()+
+                        " ," + longitud.getText().toString()));
+                chooser = i.createChooser(i,"Lanzar mapas");
+                startActivity(i);
+                Toast.makeText(this.getApplicationContext(),
+                        "Abriendo maps",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.buttonMail:
+                EditText email = findViewById(R.id.textMail);
+                i.setAction(Intent.ACTION_SEND);
+                i.setData(Uri.parse("mailto:"));
+                String para[]={email.getText().toString(),"heisenferg@gmail.com"};
+                i.putExtra(Intent.EXTRA_EMAIL, para);
+                i.putExtra(Intent.EXTRA_SUBJECT, "Saludos desde Android");
+                i.putExtra(Intent.EXTRA_TEXT, "Email enviado desde app");
+                i.setType("message/rfc822");
+                chooser= i.createChooser(i, "Enviar email");
+                startActivity(i);
+                Toast.makeText(this.getApplicationContext(),
+                        "Abriendo correo",Toast.LENGTH_LONG).show();
+                break;
 
         }
     }
