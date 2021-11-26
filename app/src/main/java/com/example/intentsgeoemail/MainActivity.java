@@ -14,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String textoRecibido;
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button abrir=findViewById(R.id.buttonWeb);
@@ -22,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
         map.setOnClickListener(this::abrir);
         Button mail = findViewById(R.id.buttonMail);
         mail.setOnClickListener(this::abrir);
+
+
+        EditText ed = findViewById(R.id.edRecibido);
+
+        if (action.equals(Intent.ACTION_SEND)){
+            textoRecibido= intent.getStringExtra(Intent.EXTRA_TEXT);
+            if (textoRecibido!=null){
+                ed.setText(textoRecibido);
+            }
+        }
     }
 
 

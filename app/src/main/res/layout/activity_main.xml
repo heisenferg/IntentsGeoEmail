@@ -153,4 +153,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textMail"
         app:layout_constraintTop_toTopOf="@+id/textMail" />
+
+    <EditText
+        android:id="@+id/edRecibido"
+        android:layout_width="281dp"
+        android:layout_height="206dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textMail" />
 </androidx.constraintlayout.widget.ConstraintLayout>
